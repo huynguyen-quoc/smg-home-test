@@ -1,0 +1,2 @@
+{"eventType":"car_listing_created","car":{"id":"1","make":"Toyota","model":"Camry","year":2022}}
+{"eventType":"car_listing_created","car":{"id":"2","make":"Honda","model":"Civic","year":2023}}

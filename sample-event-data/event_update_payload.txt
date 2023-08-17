@@ -1,0 +1,2 @@
+{"eventType":"car_listing_updated","car":{"id":"1","make":"Toyota","model":"Innova","year":2022}}
+{"eventType":"car_listing_updated","car":{"id":"2","make":"Honda","model":"Civic","year":2021}}

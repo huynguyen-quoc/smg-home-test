@@ -1,0 +1,37 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: cars
+  elasticsearch:
+    uris: http://0.0.0.0:19200
+    socket-keep-alive: true
+    socket-timeout: 30
+  kafka:
+    consumer:
+      properties:
+        max.poll.interval.ms: 60000   # Adjust as needed (e.g., 5 minutes)
+        fetch.min.bytes: 512
+        fetch.max.bytes: 2048
+        spring.deserializer.value.delegate.class: org.springframework.kafka.support.serializer.JsonDeserializer
+        spring.deserializer.key.delegate.class: org.apache.kafka.common.serialization.StringDeserializer
+        spring.json.value.default.type: com.huynguyen.smg.cars.models.EventMessage
+        spring.json.trusted.packages: "com.huynguyen.smg.cars.models"
+        spring.json.use.type.headers: false
+      group-id: car-listings-group
+      auto-offset-reset: latest
+      key-deserializer: org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
+      enable-auto-commit: false
+    listener:
+      ack-mode: manual_immediate
+      type: batch
+    bootstrap-servers: 0.0.0.0:29092
+  cache:
+    cache-names: car-caches
+    caffeine:
+      spec: initialCapacity=50,maximumSize=200,expireAfterAccess=60s
+event:
+  listener:
+    car:
+      topic: car-listings-topic

@@ -1,0 +1,1 @@
+{"eventType":"car_listing_deleted","car":{"id":"1","make":"Toyota","model":"Innova","year":2022}}
