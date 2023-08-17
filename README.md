@@ -76,19 +76,19 @@ Before you begin, ensure you have the following installed:
 
 ## How to run
 
-1. ** Check docker version**
-   ```sh
+1. Check docker version**
+   ```
     docker version
-2. ** Build Application**
-   ```sh
+2. Build Application**
+   ```
     mvn clean package -Dmaven.test.skip 
    
-3. ** Run by docker-compose**
-   ```sh
+3. Run by docker-compose
+   ```
     docker-compose up -d
-4. ** Check services ready**
+4. Check services ready
    Run below command to ensure all services running correctly.
-   ```sh
+   ```
     docker-compose ps
  ![img.png](img.png)
 
@@ -97,13 +97,13 @@ Before you begin, ensure you have the following installed:
 2. Unzip download client
 3. Change directory to the unzipped folder
 4. Run below command for created card event
-   ```sh
+   ```
     ./kafka-console-producer.sh --topic car-listings-topic --broker-list 0.0.0.0:29092 < {PROJECT_FOLDER}/sample-event-data/event_create_payload.txt
 5. Run below command for updated card event
-   ```sh
+   ```
     ./kafka-console-producer.sh --topic car-listings-topic --broker-list 0.0.0.0:29092 < {PROJECT_FOLDER}/sample-event-data/event_update_payload.txt
 6. Run below command for delete card event
-   ```sh
+   ```
     ./kafka-console-producer.sh --topic car-listings-topic --broker-list 0.0.0.0:29092 < {PROJECT_FOLDER}/sample-event-data/event_delete_payload.txt
    
 ## Accessing Your Application
@@ -113,30 +113,27 @@ you can interact with it using HTTP requests. Here are some sample `curl`
 commands to demonstrate how to interact with the API endpoints:
 
 # Search by make
-    ```sh
-    curl -X GET 'http://localhost:8080/v1/cars?q=make:Toyota'
-
+    curl -X GET 'http://localhost:8080/v1/cars?q=make:Toyota' 
+   
 # Search by make and model
-    ```sh
     curl -X GET 'http://localhost:8080/v1/cars?q=make:Toyota AND model:Corolla'
 
 # Search by year range
-    ```sh
     curl -X GET 'http://localhost:8080/v1/cars?q=year%3A%5B2020%20TO%202022%5D'
 
 # Search with pagination and sorting
-    ```sh
     curl -X GET 'http://localhost:8080/v1/cars?q=year%3A%5B2021%20TO%202023%5Dpage%3D0&size=10&sort=make,asc'
+
 ![img_1.png](img_1.png)
 ## How to run test
 
-1. ** Check docker version**
-   ```sh
-     docker version
-2. ** (Optional) if you run docker by colima **
-   ```sh
+1. Check docker version
+   ``` 
+    docker version
+2. (Optional) if you run docker by colima **
+    ```
      export TESTCONTAINERS_DOCKER_SOCKET_OVERRIDE=/var/run/docker.sock 
      export DOCKER_HOST="unix://${HOME}/.colima/docker.sock"
 3. ** Run Test **
-   ```sh
+    ```
      mvn clean test
