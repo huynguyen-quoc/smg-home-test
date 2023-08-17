@@ -76,10 +76,10 @@ Before you begin, ensure you have the following installed:
 
 ## How to run
 
-1. Check docker version**
+1. Check docker version
    ```
     docker version
-2. Build Application**
+2. Build Application
    ```
     mvn clean package -Dmaven.test.skip 
    
