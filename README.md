@@ -37,7 +37,7 @@ car listing data. Users can search for car listings based on various criteria.
     │   ├── main
     │   │   ├── java
     │   │   │   ├── com
-    │   │   │   │   ├── myapp
+    │   │   │   │   ├── huynguyen.smg.cars
     │   │   │   │   │   ├── CarListingApplication.java
     │   │   │   │   │   ├── controller
     │   │   │   │   │   │   ├── CarController.java
