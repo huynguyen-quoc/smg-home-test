@@ -42,7 +42,7 @@ class ApplicationITTest extends AbstractIntegrationTest {
         car.setModel("Civic");
         carService.saveAll(Collections.singletonList(car));
 
-        mockMvc.perform(MockMvcRequestBuilders.get("v1/cars?q=make:h* &page=0&size=10&sort=make,asc"))
+        mockMvc.perform(MockMvcRequestBuilders.get("/v1/cars?q=make:h* &page=0&size=10&sort=make,asc"))
             .andDo(print())
             .andExpect(status().is2xxSuccessful())
             .andExpect(content().json(
@@ -55,7 +55,7 @@ class ApplicationITTest extends AbstractIntegrationTest {
         car2.setModel("Camry");
         carService.saveAll(Collections.singletonList(car2));
 
-        mockMvc.perform(MockMvcRequestBuilders.get("v1/cars?page=0&size=10"))
+        mockMvc.perform(MockMvcRequestBuilders.get("/v1/cars?page=0&size=10"))
             .andDo(print())
             .andExpect(status().is2xxSuccessful())
             .andExpect(content().json(
